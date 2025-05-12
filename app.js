@@ -1,29 +1,33 @@
-// app.js
-
-// Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Toggle visibility of a message
-  const toggleBtn = document.getElementById("toggleBtn");
-  const message = document.getElementById("message");
+  // 1. Toggle visibility of the comparison table
+  const toggleTableBtn = document.getElementById("toggleTableBtn");
+  const comparisonTable = document.getElementById("comparisonTable");
 
-  toggleBtn.addEventListener("click", () => {
-    if (message.style.display === "none") {
-      message.style.display = "block";
+  toggleTableBtn.addEventListener("click", () => {
+    if (comparisonTable.style.display === "none") {
+      comparisonTable.style.display = "table";
+      alert("Comparison table is now visible.");
     } else {
-      message.style.display = "none";
+      comparisonTable.style.display = "none";
+      alert("Comparison table is now hidden.");
     }
   });
 
-  // Form submission to update content
-  const form = document.getElementById("updateForm");
-  const input = document.getElementById("userInput");
-  const output = document.getElementById("output");
-
+  // 2. Alert on form submit
+  const form = document.getElementById("contactForm");
   form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Prevent page reload
-    output.textContent = `You wrote: ${input.value}`;
-    input.value = ""; // Clear input
+    e.preventDefault();
+    alert("Form submitted! Thank you.");
+  });
+
+  // 3. Theme toggle
+  const themeBtn = document.getElementById("themeBtn");
+  const body = document.body;
+
+  themeBtn.addEventListener("click", () => {
+    body.classList.toggle("dark-theme");
+    alert("Theme changed!");
   });
 
 });
